@@ -32,13 +32,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url('admin/judul/index');?>" class="nav-link">
+                <a href="<?php echo site_url('admin/Judul/index');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Judul</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="<?php echo site_url('admin/Tempat/index');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tempat</p>
                 </a>
@@ -52,7 +52,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?php echo site_url('admin/Kategori/index')?>" class="nav-link">
+          <a href="<?php echo site_url('admin/Berkas/index');?>" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Berkas

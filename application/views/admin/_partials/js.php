@@ -32,3 +32,17 @@
 <script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
+<script src="<?php echo base_url(); ?>assets/dist/js/jquery-dataTablesbootstrap.js"></script>
+<script src="<?php echo base_url(); ?>assets/dist/js/jquery-dataTable.js"></script>
+<script src="<?php echo base_url(); ?>assets/dist/js/jquery.js"></script>
+<script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+</script>
+<script>
+$('.datepicker').datepicker({
+    format: 'yyyy/mm/dd',
+    startDate: '-3d'
+});
+</script>

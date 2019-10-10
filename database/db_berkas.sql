@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2019 at 10:03 PM
+-- Generation Time: Oct 10, 2019 at 12:19 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -38,6 +38,14 @@ CREATE TABLE `berkas` (
   `nama_pihaksatu` varchar(100) NOT NULL,
   `nama_pihakdua` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `berkas`
+--
+
+INSERT INTO `berkas` (`id_berkas`, `no_urut`, `tgl_surat`, `tgl_pendaftaran`, `id_judul`, `id_tempat`, `nama_pihaksatu`, `nama_pihakdua`) VALUES
+(1, '1160/DA/W/2019', '2019-01-04', '2019-01-04', 1, 1, 'Raka Wisnu', 'Devi Ambar'),
+(2, '1161/DA/W/2019', '2019-01-05', '2019-01-05', 2, 1, 'Zulfan Hindaraka', 'Indira');
 
 -- --------------------------------------------------------
 
@@ -80,13 +88,20 @@ INSERT INTO `level` (`id_level`, `level_user`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmpat`
+-- Table structure for table `tempat`
 --
 
-CREATE TABLE `tmpat` (
+CREATE TABLE `tempat` (
   `id_tempat` int(11) NOT NULL,
   `nama_tempat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tempat`
+--
+
+INSERT INTO `tempat` (`id_tempat`, `nama_tempat`) VALUES
+(1, 'Rak 1-100');
 
 -- --------------------------------------------------------
 
@@ -132,9 +147,9 @@ ALTER TABLE `level`
   ADD PRIMARY KEY (`id_level`);
 
 --
--- Indexes for table `tmpat`
+-- Indexes for table `tempat`
 --
-ALTER TABLE `tmpat`
+ALTER TABLE `tempat`
   ADD PRIMARY KEY (`id_tempat`);
 
 --
@@ -151,7 +166,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `berkas`
 --
 ALTER TABLE `berkas`
-  MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `judul_surat`
@@ -166,10 +181,10 @@ ALTER TABLE `level`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tmpat`
+-- AUTO_INCREMENT for table `tempat`
 --
-ALTER TABLE `tmpat`
-  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tempat`
+  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`

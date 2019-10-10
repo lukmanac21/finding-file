@@ -11,19 +11,28 @@
 		<div class="container-fluid">
         <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Master Judul Surat</h3>
+              <h3 class="card-title">Data Berkas</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
             <button style="margin-bottom : 10px ;" type="button" class="btn btn-default" data-toggle="modal" data-target="#add">
-            Tambah Judul
+            Tambah Berkas
             </button> 
-              <table id="example" class="table table-striped table-bordered">
+            <br>
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <br>
+              <table id="myTable" class="table table-striped w-auto table-bordered ">
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nama Judul</th>
-                  <th colspan="2" style="text-align: center;">Option</th>
+                  <th>No Urut</th>
+                  <th>Tanggal Surat</th>
+                  <th>Tanggal Pendaftaran</th>
+                  <th>Judul</th>
+                  <th>Tempat</th>
+                  <th>Pihak Satu</th>
+                  <th>Pihak Dua</th>
+                  <th>Option</th>
                 </tr>
                 </thead>
                 <?php $i = 1 ; 
@@ -31,15 +40,16 @@
                 { ?>
                 <tbody>
                   <th> <?php echo $i ; ?></th>
+                  <th><?php echo $row->no_urut; ?></th>
+                  <th><?php echo $row->tgl_surat; ?></th>
+                  <th><?php echo $row->tgl_pendaftaran; ?></th>
                   <th><?php echo $row->nama_judul; ?></th>
+                  <th><?php echo $row->nama_tempat; ?></th>
+                  <th><?php echo $row->nama_pihaksatu; ?></th>
+                  <th><?php echo $row->nama_pihakdua; ?></th>
                   <th style="text-align: center;">
-                    <a data-toggle="modal" data-target="#edit<?php echo $row->id_judul; ?>" class="btn btn-info btn-sm">
+                    <a data-toggle="modal" data-target="#edit<?php echo $row->id_berkas; ?>" class="btn btn-info btn-sm">
                       <span class="glyphicon glyphicon-pencil"></span> Edit 
-                    </a>
-                  </th>
-                  <th style="text-align: center;">
-                    <a data-toggle="modal" data-target="#delete<?php echo $row->id_judul; ?>"class="btn btn-danger btn-sm">
-                      <span class="glyphicon glyphicon-trash"></span> Delete 
                     </a>
                   </th>
                 </tbody>
@@ -53,7 +63,7 @@
 </div>
 <div class="modal fade" id="add">
   <div class="modal-dialog">
-  <form class="form-horizontal" action="<?php echo site_url('admin/Judul/addJudul');?>" method="post">
+  <form class="form-horizontal" action="<?php echo site_url('admin/Berkas/addBerkas');?>" method="post">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Tambah Data</h4>
@@ -64,9 +74,55 @@
       <div class="modal-body">
           <div class="card-body">
           <div class="form-group row">
-            <label for="password" class="col-sm-4 control-label">Nama Judul</label>
+            <label for="password" class="col-sm-4 control-label">No urut</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="judul" id="judul" placeholder="Nama Judul">
+              <input type="text" class="form-control" name="no_urut" id="no_urut" placeholder="No Urut">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="password" class="col-sm-4 control-label">Tanggal Surat</label>
+            <div class="col-sm-8">
+              <input type="date" class="form-control" name="tgl_surat" id="tgl_surat" placeholder="Tanggal Surat">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="password" class="col-sm-4 control-label">Tanggal Pendaftaran</label>
+            <div class="col-sm-8">
+              <input type="date" class="form-control" name="tgl_pendaftaran" id="tgl_pendaftaran" placeholder="Tanggal Pendaftaran">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 control-label">Judul Surat</label>
+            <div class="col-sm-8">
+              <select name="id_judul" id="id_judul" class="custom-select">
+                <option>Not Selected</option>
+                <?php foreach ($judul_surat as $row) {?>
+                <option value="<?php echo $row->id_judul ;?>"><?php echo $row->nama_judul ;?></option>
+                <?php }?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 control-label">Tempat Surat</label>
+            <div class="col-sm-8">
+              <select name="id_tempat" id="id_tempat" class="custom-select">
+                <option>Not Selected</option>
+                <?php foreach ($tempat as $row) {?>
+                <option value="<?php echo $row->id_tempat ;?>"><?php echo $row->nama_tempat ;?></option>
+                <?php }?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nama_pihakdua" class="col-sm-4 control-label">Nama Pihak 1</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="nama_pihaksatu" id="nama_pihaksatu" placeholder="Nama Pihak Satu">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nama_pihakdua" class="col-sm-4 control-label">Nama Pihak 2</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="nama_pihakdua" id="nama_pihakdua" placeholder="Nama Pihak Dua">
             </div>
           </div>
         </div>
@@ -147,6 +203,18 @@
 <?php $this->load->view("admin/_partials/footer.php") ?>
 <!-- /#wrapper -->
 <?php $this->load->view("admin/_partials/js.php") ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
     
 </body>
 </html>

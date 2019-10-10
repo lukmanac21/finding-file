@@ -11,18 +11,18 @@
 		<div class="container-fluid">
         <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Master Judul Surat</h3>
+              <h3 class="card-title">Data Master Tempat</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
             <button style="margin-bottom : 10px ;" type="button" class="btn btn-default" data-toggle="modal" data-target="#add">
-            Tambah Judul
+            Tambah Tempat
             </button> 
-              <table id="example" class="table table-striped table-bordered">
+              <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nama Judul</th>
+                  <th>Nama Tempat</th>
                   <th colspan="2" style="text-align: center;">Option</th>
                 </tr>
                 </thead>
@@ -31,14 +31,14 @@
                 { ?>
                 <tbody>
                   <th> <?php echo $i ; ?></th>
-                  <th><?php echo $row->nama_judul; ?></th>
+                  <th><?php echo $row->nama_tempat; ?></th>
                   <th style="text-align: center;">
-                    <a data-toggle="modal" data-target="#edit<?php echo $row->id_judul; ?>" class="btn btn-info btn-sm">
+                    <a data-toggle="modal" data-target="#edit<?php echo $row->id_tempat; ?>" class="btn btn-info btn-sm">
                       <span class="glyphicon glyphicon-pencil"></span> Edit 
                     </a>
                   </th>
                   <th style="text-align: center;">
-                    <a data-toggle="modal" data-target="#delete<?php echo $row->id_judul; ?>"class="btn btn-danger btn-sm">
+                    <a data-toggle="modal" data-target="#delete<?php echo $row->id_tempat; ?>"class="btn btn-danger btn-sm">
                       <span class="glyphicon glyphicon-trash"></span> Delete 
                     </a>
                   </th>
@@ -53,7 +53,7 @@
 </div>
 <div class="modal fade" id="add">
   <div class="modal-dialog">
-  <form class="form-horizontal" action="<?php echo site_url('admin/Judul/addJudul');?>" method="post">
+  <form class="form-horizontal" action="<?php echo site_url('admin/Tempat/addTempat');?>" method="post">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Tambah Data</h4>
@@ -64,9 +64,9 @@
       <div class="modal-body">
           <div class="card-body">
           <div class="form-group row">
-            <label for="password" class="col-sm-4 control-label">Nama Judul</label>
+            <label for="password" class="col-sm-4 control-label">Nama Tempat</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="judul" id="judul" placeholder="Nama Judul">
+              <input type="text" class="form-control" name="tempat" id="tempat" placeholder="Nama Tempat">
             </div>
           </div>
         </div>
@@ -82,9 +82,9 @@
   <!-- /.modal-dialog -->
 </div>
 <?php foreach($data as $row) { ?>
-  <div class="modal fade" id="edit<?php echo $row->id_judul;?>">
+  <div class="modal fade" id="edit<?php echo $row->id_tempat;?>">
     <div class="modal-dialog">
-    <form class="form-horizontal" action="<?php echo site_url('admin/Judul/editJudul');?>" method="post">
+    <form class="form-horizontal" action="<?php echo site_url('admin/Tempat/editTempat');?>" method="post">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Ubah Data</h4>
@@ -95,10 +95,10 @@
         <div class="modal-body">
             <div class="card-body">
             <div class="form-group row">
-              <label for="password" class="col-sm-4 control-label">Nama Judul</label>
+              <label for="password" class="col-sm-4 control-label">Nama Tempat</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="judul" id="judul" placeholder="Nama Judul" value="<?php echo $row->nama_judul ?>">
-                <input type="hidden" value="<?php echo $row->id_judul ; ?>" name="id" class="form-control">
+                <input type="text" class="form-control" name="tempat" id="tempat" placeholder="Nama Tempat" value="<?php echo $row->nama_tempat ?>">
+                <input type="hidden" value="<?php echo $row->id_tempat ; ?>" name="id" class="form-control">
               </div>
             </div>
           </div>
@@ -113,9 +113,9 @@
     </div>
     <!-- /.modal-dialog -->
   </div>
-  <div class="modal fade" id="delete<?php echo $row->id_judul;?>">
+  <div class="modal fade" id="delete<?php echo $row->id_tempat;?>">
     <div class="modal-dialog">
-    <form class="form-horizontal" action="<?php echo site_url('admin/Judul/deleteJudul');?>" method="post">
+    <form class="form-horizontal" action="<?php echo site_url('admin/Tempat/deleteTempat');?>" method="post">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Hapus Data</h4>
@@ -128,7 +128,7 @@
             <div class="form-group row">
               <div class="col-sm-8">
                 <h3>Apakah anda yakin ?</h3>
-                <input type="hidden" value="<?php echo $row->id_judul ; ?>" name="id" class="form-control">
+                <input type="hidden" value="<?php echo $row->id_tempat ; ?>" name="id" class="form-control">
               </div>
             </div>
           </div>
