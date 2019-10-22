@@ -19,17 +19,26 @@
             Tambah Berkas
             </button> 
             <br>
+            <form class="form-inline" action="<?php echo site_url('admin/Berkas');?>" method="post">
+              <select class="form-control" name="field">
+                  <option selected="selected" disabled="disabled" value="">Pilih Bulan</option>
+                  <?php foreach ($bulan as $row) {?>
+                    <option value="<?php echo $row->int_bulan ;?>"><?php echo $row->nama_bulan ;?></option>
+                  <?php }?>
+              </select>
+              <input class="btn btn-default" type="submit" name="filter" value="Go">
+            </form>
+            <br>
             <input class="form-control" id="myInput" type="text" placeholder="Search..">
             <br>
-              <table id="myTable" class="table table-striped w-auto table-bordered ">
+            <table id="example" class="table table-striped table-bordered">
                 <thead>
                 <tr>
                   <th>No</th>
                   <th>No Urut</th>
                   <th>Tanggal Surat</th>
-                  <th>Tanggal Pendaftaran</th>
+                  <th>Kategori</th>
                   <th>Judul</th>
-                  <th>Tempat</th>
                   <th>Pihak Satu</th>
                   <th>Pihak Dua</th>
                   <th>Option</th>
@@ -39,12 +48,11 @@
                 foreach ($data as $row) 
                 { ?>
                 <tbody>
-                  <th> <?php echo $i ; ?></th>
+                  <th><?php echo $i ; ?></th>
                   <th><?php echo $row->no_urut; ?></th>
-                  <th><?php echo $row->tgl_surat; ?></th>
-                  <th><?php echo $row->tgl_pendaftaran; ?></th>
+                  <th data-type="date('m')"><?php echo $row->tgl_surat; ?></th>
+                  <th><?php echo $row->nama_kategori; ?></th>
                   <th><?php echo $row->nama_judul; ?></th>
-                  <th><?php echo $row->nama_tempat; ?></th>
                   <th><?php echo $row->nama_pihaksatu; ?></th>
                   <th><?php echo $row->nama_pihakdua; ?></th>
                   <th style="text-align: center;">
@@ -89,6 +97,17 @@
             <label for="password" class="col-sm-4 control-label">Tanggal Pendaftaran</label>
             <div class="col-sm-8">
               <input type="date" class="form-control" name="tgl_pendaftaran" id="tgl_pendaftaran" placeholder="Tanggal Pendaftaran">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 control-label">Kategori</label>
+            <div class="col-sm-8">
+              <select name="id_kategori" id="id_kategori" class="custom-select">
+                <option>Not Selected</option>
+                <?php foreach ($kategori as $row) {?>
+                <option value="<?php echo $row->id_kategori ;?>"><?php echo $row->nama_kategori ;?></option>
+                <?php }?>
+              </select>
             </div>
           </div>
           <div class="form-group row">
@@ -202,19 +221,6 @@
 <?php } ?>
 <?php $this->load->view("admin/_partials/footer.php") ?>
 <!-- /#wrapper -->
-<?php $this->load->view("admin/_partials/js.php") ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
-    
+<?php $this->load->view("admin/_partials/js.php") ?>    
 </body>
 </html>

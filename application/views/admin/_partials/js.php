@@ -36,9 +36,13 @@
 <script src="<?php echo base_url(); ?>assets/dist/js/jquery-dataTable.js"></script>
 <script src="<?php echo base_url(); ?>assets/dist/js/jquery.js"></script>
 <script>
-    $(document).ready(function() {
-      $('#example').DataTable();
-    } );
+var table = $('#example').DataTable( {
+  ajax: "data.json"
+} );
+
+setInterval( function () {
+  table.ajax.reload();
+}, 30000 );
 </script>
 <script>
 $('.datepicker').datepicker({
@@ -46,3 +50,14 @@ $('.datepicker').datepicker({
     startDate: '-3d'
 });
 </script>
+<script>
+  $(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#example tbody").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+ </script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2019 at 12:19 PM
+-- Generation Time: Oct 22, 2019 at 02:56 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -33,6 +33,7 @@ CREATE TABLE `berkas` (
   `no_urut` varchar(100) NOT NULL,
   `tgl_surat` date NOT NULL,
   `tgl_pendaftaran` date NOT NULL,
+  `id_kategori` int(11) NOT NULL,
   `id_judul` int(11) NOT NULL,
   `id_tempat` int(11) NOT NULL,
   `nama_pihaksatu` varchar(100) NOT NULL,
@@ -43,9 +44,39 @@ CREATE TABLE `berkas` (
 -- Dumping data for table `berkas`
 --
 
-INSERT INTO `berkas` (`id_berkas`, `no_urut`, `tgl_surat`, `tgl_pendaftaran`, `id_judul`, `id_tempat`, `nama_pihaksatu`, `nama_pihakdua`) VALUES
-(1, '1160/DA/W/2019', '2019-01-04', '2019-01-04', 1, 1, 'Raka Wisnu', 'Devi Ambar'),
-(2, '1161/DA/W/2019', '2019-01-05', '2019-01-05', 2, 1, 'Zulfan Hindaraka', 'Indira');
+INSERT INTO `berkas` (`id_berkas`, `no_urut`, `tgl_surat`, `tgl_pendaftaran`, `id_kategori`, `id_judul`, `id_tempat`, `nama_pihaksatu`, `nama_pihakdua`) VALUES
+(1, '1160/DA/W/2019', '2019-01-04', '2019-01-04', 1, 1, 1, 'Raka Wisnu', 'Devi Ambar'),
+(2, '1161/DA/W/2019', '2019-02-01', '2019-02-01', 1, 2, 1, 'Zulfan Hindaraka', 'Indira');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bulan`
+--
+
+CREATE TABLE `bulan` (
+  `id_bulan` int(11) NOT NULL,
+  `int_bulan` varchar(11) NOT NULL,
+  `nama_bulan` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bulan`
+--
+
+INSERT INTO `bulan` (`id_bulan`, `int_bulan`, `nama_bulan`) VALUES
+(1, '01', 'Januari'),
+(2, '02', 'Februari'),
+(3, '03', 'Maret'),
+(4, '04', 'April'),
+(5, '05', 'Mei'),
+(6, '06', 'Juni'),
+(7, '07', 'Juli'),
+(8, '08', 'Agustus'),
+(9, '09', 'September'),
+(10, '10', 'Oktober'),
+(11, '11', 'November'),
+(12, '12', 'Desember');
 
 -- --------------------------------------------------------
 
@@ -69,21 +100,21 @@ INSERT INTO `judul_surat` (`id_judul`, `nama_judul`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Table structure for table `kategori`
 --
 
-CREATE TABLE `level` (
-  `id_level` int(11) NOT NULL,
-  `level_user` varchar(20) NOT NULL
+CREATE TABLE `kategori` (
+  `id_kategori` int(11) NOT NULL,
+  `nama_kategori` varchar(50) NOT NULL,
+  `keterangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `level`
+-- Dumping data for table `kategori`
 --
 
-INSERT INTO `level` (`id_level`, `level_user`) VALUES
-(1, 'Admin'),
-(2, 'User');
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `keterangan`) VALUES
+(1, 'Akta', '');
 
 -- --------------------------------------------------------
 
@@ -135,16 +166,22 @@ ALTER TABLE `berkas`
   ADD PRIMARY KEY (`id_berkas`);
 
 --
+-- Indexes for table `bulan`
+--
+ALTER TABLE `bulan`
+  ADD PRIMARY KEY (`id_bulan`);
+
+--
 -- Indexes for table `judul_surat`
 --
 ALTER TABLE `judul_surat`
   ADD PRIMARY KEY (`id_judul`);
 
 --
--- Indexes for table `level`
+-- Indexes for table `kategori`
 --
-ALTER TABLE `level`
-  ADD PRIMARY KEY (`id_level`);
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indexes for table `tempat`
@@ -169,16 +206,22 @@ ALTER TABLE `berkas`
   MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `bulan`
+--
+ALTER TABLE `bulan`
+  MODIFY `id_bulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `judul_surat`
 --
 ALTER TABLE `judul_surat`
   MODIFY `id_judul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `level`
+-- AUTO_INCREMENT for table `kategori`
 --
-ALTER TABLE `level`
-  MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tempat`

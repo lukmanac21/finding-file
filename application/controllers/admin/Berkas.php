@@ -9,15 +9,27 @@ class Berkas extends CI_Controller {
 		$this->load->model('mBerkas');
 	}
 	public function index(){
-        $result['data'] = $this->mBerkas->showData();
+        $filter = $this->input->post('filter');
+        $field  = $this->input->post('field');
+        $search = $this->input->post('search');
+        if (isset($filter)) {
+            $result['data'] = $this->mBerkas->getBerkasWhere($field);
+        } else {
+            $result['data'] = $this->mBerkas->showData();
+        }
+        //$result['data'] = $this->mBerkas->showData();
         $result['judul_surat'] = $this->mBerkas->showJudul();
         $result['tempat'] = $this->mBerkas->showTempat();
+        $result['kategori'] = $this->mBerkas->showKategori();
+        $result['bulan'] = $this->mBerkas->showBulan();
+
         $this->load->view('admin/berkas', $result); 
     }
     public function addBerkas(){
         $no_urut = $this->input->post('no_urut');
         $tgl_surat = $this->input->post('tgl_surat');
         $tgl_pendaftaran = $this->input->post('tgl_pendaftaran');
+        $id_kategori = $this->input->post('id_kategori');
         $id_judul = $this->input->post('id_judul');
         $id_tempat = $this->input->post('id_tempat');
         $nama_pihaksatu = $this->input->post('nama_pihaksatu');
@@ -27,6 +39,7 @@ class Berkas extends CI_Controller {
             'tgl_surat' => $tgl_surat,
             'tgl_pendaftaran' => $tgl_pendaftaran,
             'id_judul' => $id_judul,
+            'id_kategoril' => $id_kategori,
             'id_tempat' => $id_tempat,
             'nama_pihaksatu' => $nama_pihaksatu,
             'nama_pihakdua' => $nama_pihakdua,

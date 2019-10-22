@@ -23,7 +23,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Data Master
@@ -38,26 +38,41 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="<?php echo site_url('admin/Kategori/index');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kategori</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="<?php echo site_url('admin/Tempat/index');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tempat</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Data Berkas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="<?php echo site_url('admin/CariBerkas/index');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Level User</p>
+                  <p>Cari Berkas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('admin/Berkas/index');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Berkas</p>
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item">
-          <a href="<?php echo site_url('admin/Berkas/index');?>" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Berkas
-              </p>
-            </a>
           </li>
         </ul>
       </nav>
