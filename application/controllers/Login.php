@@ -6,9 +6,7 @@ class Login extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('mLogin');
-        //if($this->session->userdata('status') != "login"){
-            //redirect(base_url("login"));
-        //}
+        $this->load->library('session');
     }
 	public function index(){
         $this->load->helper('url');
@@ -18,6 +16,19 @@ class Login extends CI_Controller {
     public function signup(){
         $this->load->helper('url');
         $this->load->view('signup');
+    }
+    public function signup_action(){
+        $nama = $this->input->post('nama');
+        $email = $this->input->post('email');
+        $password = md5($this->input->post('password'));
+        
+        $data = array(
+            'nama_user' => $nama,
+            'email_user' => $email,
+            'password_user' => $password 
+        );
+        $this->mLogin->inputData($data, 'user');
+        redirect('login');
     }
     public function login_action(){
         $email = $this->input->post('email');
@@ -30,7 +41,7 @@ class Login extends CI_Controller {
         if($check > 0){
             $data_session = array(
                 'email_user' => $email,
-                'status' => "Login"
+                'logged_in' => "login"
             );
             $this->session->set_userdata($data_session);
             redirect(site_url('admin/overview'));

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2019 at 02:56 PM
+-- Generation Time: Oct 24, 2019 at 10:05 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -37,16 +37,18 @@ CREATE TABLE `berkas` (
   `id_judul` int(11) NOT NULL,
   `id_tempat` int(11) NOT NULL,
   `nama_pihaksatu` varchar(100) NOT NULL,
-  `nama_pihakdua` varchar(100) NOT NULL
+  `nama_pihakdua` varchar(100) NOT NULL,
+  `gambar_berkas` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `berkas`
 --
 
-INSERT INTO `berkas` (`id_berkas`, `no_urut`, `tgl_surat`, `tgl_pendaftaran`, `id_kategori`, `id_judul`, `id_tempat`, `nama_pihaksatu`, `nama_pihakdua`) VALUES
-(1, '1160/DA/W/2019', '2019-01-04', '2019-01-04', 1, 1, 1, 'Raka Wisnu', 'Devi Ambar'),
-(2, '1161/DA/W/2019', '2019-02-01', '2019-02-01', 1, 2, 1, 'Zulfan Hindaraka', 'Indira');
+INSERT INTO `berkas` (`id_berkas`, `no_urut`, `tgl_surat`, `tgl_pendaftaran`, `id_kategori`, `id_judul`, `id_tempat`, `nama_pihaksatu`, `nama_pihakdua`, `gambar_berkas`) VALUES
+(1, '1160/DA/W/2019', '2019-01-04', '2019-01-04', 1, 1, 1, 'Raka Wisnu', 'Devi Ambar', ''),
+(2, '1161/DA/W/2019', '2019-02-01', '2019-02-01', 1, 2, 1, 'Zulfan Hindaraka', 'Indira', ''),
+(3, '1162/DA/W/2019', '0001-01-01', '0001-01-01', 1, 1, 1, 'Raka Wisnu', 'Zulfan Hindaraka', 'IMG_49091.JPG');
 
 -- --------------------------------------------------------
 
@@ -153,7 +155,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `email_user`, `nama_user`, `password_user`, `id_level`) VALUES
-(1, 'zulfanhindaraka@gmail.com', 'Zulfan Hindaraka Zudan', '21232f297a57a5a743894a0e4a801fc3', 1);
+(1, 'zulfanhindaraka@gmail.com', 'Zulfan Hindaraka Zudan', '21232f297a57a5a743894a0e4a801fc3', 1),
+(2, 'ristaangrea@gmail.com', 'Rista Angrea', '21232f297a57a5a743894a0e4a801fc3', 0);
 
 --
 -- Indexes for dumped tables
@@ -203,7 +206,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `berkas`
 --
 ALTER TABLE `berkas`
-  MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `bulan`
@@ -233,7 +236,7 @@ ALTER TABLE `tempat`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

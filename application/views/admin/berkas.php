@@ -41,6 +41,7 @@
                   <th>Judul</th>
                   <th>Pihak Satu</th>
                   <th>Pihak Dua</th>
+                  <th>Gambar</th>
                   <th>Option</th>
                 </tr>
                 </thead>
@@ -55,6 +56,7 @@
                   <th><?php echo $row->nama_judul; ?></th>
                   <th><?php echo $row->nama_pihaksatu; ?></th>
                   <th><?php echo $row->nama_pihakdua; ?></th>
+                  <th><img src="<?= base_url ()?>assets/img/<?php  echo $row->gambar_berkas;?>" width="100px" height="100px" class="img-thumbnail"></th>
                   <th style="text-align: center;">
                     <a data-toggle="modal" data-target="#edit<?php echo $row->id_berkas; ?>" class="btn btn-info btn-sm">
                       <span class="glyphicon glyphicon-pencil"></span> Edit 
@@ -71,7 +73,7 @@
 </div>
 <div class="modal fade" id="add">
   <div class="modal-dialog">
-  <form class="form-horizontal" action="<?php echo site_url('admin/Berkas/addBerkas');?>" method="post">
+  <form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url('admin/Berkas/addBerkas');?>" method="post">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Tambah Data</h4>
@@ -142,6 +144,12 @@
             <label for="nama_pihakdua" class="col-sm-4 control-label">Nama Pihak 2</label>
             <div class="col-sm-8">
               <input type="text" class="form-control" name="nama_pihakdua" id="nama_pihakdua" placeholder="Nama Pihak Dua">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="password" class="col-sm-4 control-label">Gambar</label>
+            <div class="col-sm-8">
+              <input type="file" class="form-control" name="file_name" id="file_name" placeholder="Gambar">
             </div>
           </div>
         </div>

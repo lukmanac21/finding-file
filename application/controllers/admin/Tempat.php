@@ -6,7 +6,11 @@ class Tempat extends CI_Controller {
 		parent::__construct();
         $this->load->helper('url');
         $this->load->database();
-		$this->load->model('mTempat');
+        $this->load->model('mTempat');
+        if ($this->session->userdata['logged_in'] == FALSE)
+        {
+            redirect('login');
+        }
 	}
 	public function index(){
         $result['data'] = $this->mTempat->showData();
