@@ -10,48 +10,30 @@ class Login extends CI_Controller {
     }
 	public function index(){
         $this->load->helper('url');
-        $this->session->userdata('nama_siswa');
-		$this->load->view('login');
+		$this->load->view('admin/login');
     }
     public function signup(){
         $this->load->helper('url');
-        $this->load->view('signup');
-    }
-    public function signup_action(){
-        $nama = $this->input->post('nama');
-        $email = $this->input->post('email');
-        $password = md5($this->input->post('password'));
-        
-        $data = array(
-            'nama_user' => $nama,
-            'email_user' => $email,
-            'password_user' => $password 
-        );
-        $this->mLogin->inputData($data, 'user');
-        redirect('login');
+        $data['jurusan'] = $this->mLogin->show_jurusan()->result();
+        $this->load->view('signup',$data);
     }
     public function login_action(){
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         $where = array(
-            'email_user' => $email,
-            'password_user' => md5($password)
+            'email_admin' => $email,
+            'pass_admin' => md5($password)
         );
-        $check = $this->mLogin->login_checker("user",$where)->num_rows();
+        $check = $this->mLogin->login_checker("tbl_admin",$where)->num_rows();
         if($check > 0){
-            $data_session = array(
-                'email_user' => $email,
-                'logged_in' => "login"
+            $data = array(
+                'logged_in' => TRUE,
+                'username' => $check->name_admin
             );
-            $this->session->set_userdata($data_session);
+            $this->session->set_userdata($data);
             redirect(site_url('admin/overview'));
-        }else{?>
-            <script type=text/javascript>
-            alert("Email atau Password salah!.");
-            window.location.href='http://localhost/SI-Berkas/index.php/login';
-            </script>
-        <?php
-
+        }else{
+            echo"nrp atau password salah";
         }
     }
     public function logout(){

@@ -4,7 +4,7 @@
     <a href="index3.html" class="brand-link">
       <img src="<?php echo base_url('assets/dist/img/AdminLTELogo.png')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Admin Berkas</span>
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
     <!-- Sidebar -->
@@ -23,7 +23,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Data Master
@@ -32,38 +32,59 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url('admin/Judul/index');?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Judul</p>
+                <a href="<?php echo site_url('admin/Jurusan/index')?>" class="nav-link">
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>Jurusan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('admin/Kategori/index');?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="<?php echo site_url('admin/Ruangan/index')?>" class="nav-link">
+                  <i class="nav-icon fas fa-home"></i>
+                  <p>Ruang</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('admin/Kategori/index')?>" class="nav-link">
+                  <i class="nav-icon fas fa-share-alt"></i>
                   <p>Kategori</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('admin/Tempat/index');?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tempat</p>
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-male"></i>
+                  <p>Pemateri</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('admin/Slider/index')?>" class="nav-link">
+                  <i class="nav-icon fas fa-image"></i>
+                  <p>Slider</p>
+                </a>
+              </li>
+              <hr style="border-top: 1px solid white ;">
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?php echo site_url('admin/Berkas/index');?>" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+            <a href="<?php echo site_url('admin/Event/index')?>" class="nav-link">
+              <i class="nav-icon fas fa-wrench"></i>
               <p>
-                Data Berkas
+                Event
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo site_url('admin/Berkas/indexfind');?>" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Cari Berkas
+                User
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-check"></i>
+              <p>
+                Absensi
               </p>
             </a>
           </li>

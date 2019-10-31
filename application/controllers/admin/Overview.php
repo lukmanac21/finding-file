@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 class Overview extends CI_Controller {
 	function __construct(){
 		parent::__construct();
@@ -12,3 +11,4 @@ class Overview extends CI_Controller {
 		$this->load->view('admin/overview');
 	}
 }
+?>

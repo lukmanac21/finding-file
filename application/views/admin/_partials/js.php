@@ -1,63 +1,40 @@
 <!-- jQuery -->
-<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="<?php echo base_url(); ?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<script src="<?php echo base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="<?php echo base_url(); ?>assets/plugins/sparklines/sparkline.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
-<script src="<?php echo base_url(); ?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="<?php echo base_url(); ?> assets/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="<?php echo base_url(); ?> assets/admin/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="<?php echo base_url(); ?>assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/moment/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="<?php echo base_url(); ?>assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
-<script src="<?php echo base_url(); ?>assets/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
-<script src="<?php echo base_url(); ?>assets/dist/js/jquery-dataTablesbootstrap.js"></script>
-<script src="<?php echo base_url(); ?>assets/dist/js/jquery-dataTable.js"></script>
-<script src="<?php echo base_url(); ?>assets/dist/js/jquery.js"></script>
-<script>
-var table = $('#example').DataTable( {
-  ajax: "data.json"
-} );
-
-setInterval( function () {
-  table.ajax.reload();
-}, 30000 );
-</script>
+<script src="<?php echo base_url(); ?>assets/admin/dist/js/demo.js"></script>
 <script>
 $('.datepicker').datepicker({
     format: 'yyyy/mm/dd',
     startDate: '-3d'
 });
 </script>
-<script>
-  $(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#example tbody").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
- </script>

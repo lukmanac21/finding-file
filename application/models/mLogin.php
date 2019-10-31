@@ -4,9 +4,6 @@ class mLogin extends CI_MODEL{
     function login_checker($table,$where){
         return $this->db->get_where($table,$where);
     }
-    function inputData($data, $table){
-        $this->db->insert($table,$data);
-    }
 }
 
 ?>
