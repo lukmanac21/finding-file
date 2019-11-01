@@ -18,7 +18,6 @@ class mUser extends CI_MODEL{
         $this->db->select($data);
         $this->db->from($table);
         $this->db->where($where);
-        $this->db->join('tbl_kategori','tbl_slider.id_kategori = tbl_kategori.id_kategori');
         $query = $this->db->get();
         return $query->result();
     }

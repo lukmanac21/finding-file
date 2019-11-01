@@ -21,7 +21,7 @@ class Slider extends CI_Controller {
         $this->load->library('upload', $config);
 
         $title_slider = $this->input->post('title_slider');
-        $id_kategori = $this->input->post('id_kategori');
+        $ket_slider = $this->input->post('ket_slider');
         $status_slider = $this->input->post('status_slider');
 
         if ( ! $this->upload->do_upload('file_name'))
@@ -35,7 +35,7 @@ class Slider extends CI_Controller {
 			$img_slider = $data['file_name'];
             $data = array (
                 'title_slider' => $title_slider,
-                'id_kategori' => $id_kategori,
+                'ket_slider' => $ket_slider,
                 'img_slider' => $img_slider,
                 'status_slider' => $status_slider
                 );
@@ -44,7 +44,7 @@ class Slider extends CI_Controller {
         }
     }
     public function editSlider(){
-        $config['upload_path']          = "assets/img/slider/";
+        $config['upload_path']          = "assets/images";
         $config['allowed_types']        = 'gif|jpg|png';
 		$config['max_size']             = 500000;
 		$config['max_width']            = 0;
@@ -53,7 +53,7 @@ class Slider extends CI_Controller {
 
         $id= $this->input->post('id');
         $title_slider = $this->input->post('title_slider');
-        $id_kategori = $this->input->post('id_kategori');
+        $ket_slider = $this->input->post('ket_slider');
         $status_slider = $this->input->post('status_slider');
         $where = array(
             'id_slider' => $id
@@ -65,11 +65,13 @@ class Slider extends CI_Controller {
         }
         else
         {
+            $data = $this->upload->data();
+			$img_slider = $data['file_name'];
             $data = array (
                 'title_slider' => $title_slider,
+                'ket_slider' => $ket_slider,
                 'img_slider' => $img_slider,
-                'id_kategori' => $id_kategori,
-                'status_slider' => $status_sliders
+                'status_slider' => $status_slider
                 );
             $this->mAll->updateData($where, $data, 'tbl_slider');
             redirect('admin/Slider/index');

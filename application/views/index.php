@@ -13,9 +13,9 @@
                 <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('<?php echo base_url(); ?>assets/images/<?php echo $rowSlider->img_slider;?>'); ">
                   <div class="text half-to-full">
                     <div class="post-meta">
-                      <span class="category"><?php echo $rowSlider->nama_kategori; ?></span>
+                      <span class="category"><?php echo $rowSlider->title_slider; ?></span>
                     </div>
-                    <h3><?php echo $rowSlider->title_slider; ?></h3>
+                    <h3><?php echo $rowSlider->ket_slider; ?></h3>
                   </div>
                 </a>
               </div>
@@ -24,42 +24,20 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('<?php echo base_url(); ?>assets/images/img_2.jpg'); ">
+        <?php foreach($event as $rowEvent) { ?> 
+          <div class="col-md-6 col-lg-6">
+            <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('<?php echo base_url(); ?>assets/images/<?php echo $rowEvent->banner_event?>'); ">
               <div class="text">
                 <div class="post-meta">
-                  <span class="category">Lifestyle</span>
-                  <span class="mr-2">March 15, 2018 </span> &bullet;
-                  <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                  <span class="category"><?php echo $rowEvent->nama_kategori ;?></span>
+                  <span class="mr-2"><?php echo $rowEvent->tanggal_event;?></span> &bullet;
+                  <span class="ml-2"><?php echo $rowEvent->nama_ruang ;?> </span>
                 </div>
-                <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
+                <h3><?php echo $rowEvent->nama_event ;?></h3>
               </div>
             </a>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('<?php echo base_url(); ?>assets/images/img_3.jpg'); ">
-              <div class="text">
-                <div class="post-meta">
-                  <span class="category">Travel</span>
-                  <span class="mr-2">March 15, 2018 </span> &bullet;
-                  <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                </div>
-                <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('<?php echo base_url(); ?>assets/images/img_4.jpg'); ">
-              <div class="text">
-                <div class="post-meta">
-                  <span class="category">Food</span>
-                  <span class="mr-2">March 15, 2018 </span> &bullet;
-                  <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                </div>
-                <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
-              </div>
-            </a>
-          </div>
+          <?php } ?>
         </div>
       </div>
 

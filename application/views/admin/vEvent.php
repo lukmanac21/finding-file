@@ -128,9 +128,9 @@
   <!-- /.modal-dialog -->
 </div>
 <?php foreach($data as $row) { ?>
-  <div class="modal fade" id="edit<?php echo $row->id_jurusan;?>">
+  <div class="modal fade" id="edit<?php echo $row->id_event;?>">
     <div class="modal-dialog">
-    <form class="form-horizontal" action="<?php echo site_url('admin/Jurusan/editJurusan');?>" method="post">
+    <form class="form-horizontal" action="<?php echo site_url('admin/Event/editEvent');?>" method="post">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Ubah Data</h4>
@@ -141,10 +141,10 @@
         <div class="modal-body">
             <div class="card-body">
             <div class="form-group row">
-              <label for="password" class="col-sm-4 control-label">Nama Jurusan</label>
+              <label for="password" class="col-sm-4 control-label">Nama Event</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="nama_jurusan" id="nama_jurusan" placeholder="Nama Jurusan" value="<?php echo $row->nama_jurusan ?>">
-                <input type="hidden" value="<?php echo $row->id_jurusan ; ?>" name="id" class="form-control">
+                <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Nama Jurusan" value="<?php echo $row->nama_event ; ?>">
+                <input type="hidden" value="<?php echo $row->id_event ; ?>" name="id" class="form-control">
               </div>
             </div>
           </div>
@@ -152,36 +152,6 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
           <button type="submit" name="submit" class="btn btn-primary">Ubah</button>
-        </div>
-      </div>
-    </form>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
-  <div class="modal fade" id="delete<?php echo $row->id_jurusan;?>">
-    <div class="modal-dialog">
-    <form class="form-horizontal" action="<?php echo site_url('admin/Jurusan/deleteJurusan');?>" method="post">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Hapus Data</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="card-body">
-            <div class="form-group row">
-              <div class="col-sm-8">
-                <h3>Apakah anda yakin ?</h3>
-                <input type="hidden" value="<?php echo $row->id_jurusan ; ?>" name="id" class="form-control">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-          <button type="submit" name="submit" class="btn btn-primary">Hapus</button>
         </div>
       </div>
     </form>

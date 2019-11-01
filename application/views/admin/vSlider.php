@@ -11,20 +11,20 @@
 		<div class="container-fluid">
         <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Master Slider</h3>
+              <h3 class="card-title">Data Slider</h3>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
             <button style="margin-bottom : 10px ;" type="button" class="btn btn-default" data-toggle="modal" data-target="#add">
             Tambah Slider
-            </button> 
+            </button>
               <table id="mytable" class="table table-striped table-bordered">
                 <thead>
                 <tr>
                   <th>No</th>
                   <th>Nama Slider</th>
-                  <th>Img Slider</th>
-                  <th>Status</th>
+                  <th>keterangan</th>
+                  <th>Img</th>
+                  <th>Status</th>>
                   <th colspan="2" style="text-align: center;">Option</th>
                 </tr>
                 </thead>
@@ -34,6 +34,7 @@
                 <tbody>
                   <th> <?php echo $i ; ?></th>
                   <th><?php echo $row->title_slider; ?></th>
+                  <th><?php echo $row->ket_slider; ?></th>
                   <th><img src="<?= base_url ()?>assets/images/<?php  echo $row->img_slider;?>" width="200px" height="100px" class="img-thumbnail"></th>
                   <th><?php echo $row->status_slider; ?></th>
                   <th style="text-align: center;">
@@ -68,9 +69,15 @@
       <div class="modal-body">
           <div class="card-body">
           <div class="form-group row">
-            <label for="password" class="col-sm-4 control-label">Nama Slider</label>
+            <label for="nama_slider" class="col-sm-4 control-label">Nama Slider</label>
+            <div  class="col-sm-8">
+              <input type="text" class="form-control" name="title_slider" id="title_slider" placeholder="Nama Event">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="password" class="col-sm-4 control-label">keterangan</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="title_slider" id="title_slider" placeholder="Nama Slider">
+              <input type="text" class="form-control" name="ket_slider" id="ket_slider" placeholder="Keterangan">
             </div>
           </div>
           <div class="form-group row">
@@ -85,17 +92,6 @@
               <select name="status_slider" class="custom-select">
                     <option value="Aktif">Aktif</option>
                     <option value="Tidak Aktif">Tidak Aktif</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-4 control-label">Kategori</label>
-            <div class="col-sm-8">
-              <select name="id_kategori" class="custom-select">
-              <option>Not Selected</option>
-                <?php foreach ($kategori as $row) {?>
-                <option value="<?php echo $row->id_kategori ;?>"><?php echo $row->nama_kategori ;?></option>
-                <?php }?>
               </select>
             </div>
           </div>
@@ -125,14 +121,19 @@
         <div class="modal-body">
           <div class="card-body">
             <div class="form-group row">
-              <label for="password" class="col-sm-4 control-label">Nama Slider</label>
+              <label class="col-sm-4 control-label">Nama Slider</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="nama_ruang" id="nama_ruang" placeholder="Nama Ruangan" value="<?php echo $row->title_slider ?>">
-                <input type="hidden" value="<?php echo $row->id_slider ; ?>" name="id" class="form-control">
+                <input type="text" class="form-control" name="title_slider" id="title_slider" placeholder="Nama Slider" value="<?php echo $row->title_slider ?>">
               </div>
             </div>
             <div class="form-group row">
-              <label for="password" class="col-sm-4 control-label">Image Slider</label>
+              <label class="col-sm-4 control-label">Ket Slider</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="ket_slider" id="ket_slider" placeholder="Keterangan Slider" value="<?php echo $row->ket_slider ?>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 control-label">Image Slider</label>
               <div class="col-sm-8">
                 <input type="file" class="form-control" name="file_name" id="file_name" placeholder="Gambar">
               </div>
@@ -146,21 +147,11 @@
                 </select>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-sm-4 control-label">Kategori</label>
-              <div class="col-sm-8">
-                <select name="id_kategori" class="custom-select">
-                  <option>Not Selected</option>
-                  <?php foreach ($kategori as $row) {?>
-                  <option value="<?php echo $row->id_kategori ;?>"><?php echo $row->nama_kategori ;?></option>
-                  <?php }?>
-                </select>
-              </div>
-            </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <input type="hidden" value="<?php echo $row->id_slider ; ?>" name="id" class="form-control">
           <button type="submit" name="submit" class="btn btn-primary">Ubah</button>
         </div>
       </div>

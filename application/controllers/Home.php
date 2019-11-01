@@ -17,6 +17,7 @@ class Home extends CI_Controller {
             'status_slider' => $status
         );
         $result['slider'] = $this->mUser->showDataHome('*','tbl_slider',$where);
+        $result['event'] = $this->mUser->showDataEvent();
         $this->load->helper('url');
 		$this->load->view('index',$result);
     }
